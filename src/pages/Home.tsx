@@ -7,8 +7,6 @@ const Home = () => {
             {cardData.map((data, index) => (
                 <Cards key={index}
                     image={data.image}
-                    title={data.title}
-                    description={data.description}
                     buttonText={data.buttonText}
                     buttonLink={data.buttonLink}
                 />
