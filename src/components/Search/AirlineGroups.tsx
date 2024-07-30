@@ -1,7 +1,7 @@
 // src/components/AirlineGroups.tsx
 import React from 'react';
 import AirlineGroup, { AirlineGroupProps } from './AirlineGroup';
-import generateRandomData from '../data/AirlineGroups';
+import generateRandomData from '../../data/AirlineGroups';
 
 
 

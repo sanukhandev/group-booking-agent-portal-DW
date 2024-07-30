@@ -1,6 +1,7 @@
 import { lazy } from 'react';
 import Home from '../pages/Home';
 import FlightSearchPage from '../pages/FlightSearchPage';
+import Calculator from '../pages/Calculator';
 const Index = lazy(() => import('../pages/Index'));
 
 const routes = [
@@ -19,6 +20,11 @@ const routes = [
         element: <FlightSearchPage />,
         layout: 'default',
     },
+    {
+        path: '/calculator',
+        element: <Calculator />,
+        layout: 'default',
+    }
 
 
 

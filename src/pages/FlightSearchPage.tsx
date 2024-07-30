@@ -1,7 +1,7 @@
 import React from 'react';
-import SectorFilter from '../components/SectorFilter';
-import SearchBar from '../components/SearchBar';
-import AirlineGroups from '../components/AirlineGroups';
+import SectorFilter from '../components/Search/SectorFilter';
+import SearchBar from '../components/Search/SearchBar';
+import AirlineGroups from '../components/Search/AirlineGroups';
 
 const FlightSearchPage: React.FC = () => {
     return (
