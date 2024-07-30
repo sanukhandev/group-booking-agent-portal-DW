@@ -4,7 +4,6 @@ import FlightSearchPage from '../pages/FlightSearchPage';
 const Index = lazy(() => import('../pages/Index'));
 
 const routes = [
-    // dashboard
     {
         path: '/',
         element: <Home />,
