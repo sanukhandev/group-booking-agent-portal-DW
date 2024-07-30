@@ -4,6 +4,7 @@ import VisaDetails from '../components/Calculator/VisaDetails';
 import RoomType from '../components/Calculator/RoomType';
 import PlanDetails from '../components/Calculator/PlanDetails';
 import TransportDetails from '../components/Calculator/TransportDetails';
+import { NavLink } from 'react-router-dom';
 
 const Calculator: React.FC = () => {
     const [adults, setAdults] = useState<number>(0);
@@ -59,9 +60,12 @@ const Calculator: React.FC = () => {
                 transferRate={transferRate}
                 setTransferRate={setTransferRate}
             />
-            <button className="w-full py-2 px-4 bg-primary hover:bg-secondary text-white font-semibold rounded-md focus:outline-none focus:ring-2 focus:ring-orange-600 focus:ring-opacity-50">
-                Proceed to Results
-            </button>
+            <NavLink to={'/confirmation'}>
+                <button
+                    className="w-full py-2 px-4 bg-primary hover:bg-secondary text-white font-semibold rounded-md focus:outline-none focus:ring-2 focus:ring-orange-600 focus:ring-opacity-50">
+                    Proceed to Results
+                </button>
+            </NavLink>
         </div>
     );
 };

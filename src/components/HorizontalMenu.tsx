@@ -39,7 +39,6 @@ const HorizontalMenu: React.FC = () => {
                     <button type="button" className="nav-link">
                         <div className="flex items-center">
                             {menuItem.icon && <menuItem.icon className="shrink-0" />}
-                            {/*<span className="px-1">{t(menuItem.label)}</span>*/}
                             <NavLink to={menuItem.path!}>{t(menuItem.label)}</NavLink>
                         </div>
                         {
