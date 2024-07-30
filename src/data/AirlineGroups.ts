@@ -1,5 +1,3 @@
-import { AirlineGroupProps } from '../components/Search/AirlineGroup';
-
 const getRandomInt = (min:number, max:number) => Math.floor(Math.random() * (max - min + 1)) + min;
 
 const generateRandomData = () => {
@@ -11,7 +9,7 @@ const generateRandomData = () => {
         '795 03AUG MUX-JED 04:30 23-KG Baggage, 794 30AUG JED-MUX 17:00 23:45 46-KG Baggage'
     ];
 
-    const groups = Array.from({ length: 10 }, () => {
+    return Array.from({ length: 10 }, () => {
         const randomAirlineIndex = getRandomInt(0, 1);
         const randomSectorDetailIndex = getRandomInt(0, 1);
         const airline = airlines[randomAirlineIndex];
@@ -38,8 +36,6 @@ const generateRandomData = () => {
             route,
         };
     });
-
-    return groups;
 };
 
 export default generateRandomData;

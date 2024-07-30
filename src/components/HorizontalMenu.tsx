@@ -36,17 +36,19 @@ const HorizontalMenu: React.FC = () => {
         <ul className="horizontal-menu hidden py-1.5 font-semibold px-6 lg:space-x-1.5 xl:space-x-8 rtl:space-x-reverse bg-white border-t border-[#ebedf2] dark:border-[#191e3a] dark:bg-[#001f41] text-black dark:text-white-dark">
             {menuConfig.map((menuItem, index) => (
                 <li key={index} className="menu nav-item relative">
-                    <button type="button" className="nav-link">
+                    <NavLink to={menuItem.path!}>  <button type="button" className="nav-link">
                         <div className="flex items-center">
                             {menuItem.icon && <menuItem.icon className="shrink-0" />}
-                            <NavLink to={menuItem.path!}>{t(menuItem.label)}</NavLink>
+                            {t(menuItem.label)}
                         </div>
+
                         {
                             menuItem.subMenu && <div className="ltr:ml-auto rtl:mr-auto rtl:rotate-90 -rotate-90">
                                 <IconCaretDown />
                             </div>
                         }
                     </button>
+                    </NavLink>
                     {menuItem.subMenu && renderSubMenu(menuItem.subMenu)}
                 </li>
             ))}

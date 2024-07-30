@@ -8,7 +8,7 @@ export const hotelRates = [
         triple: 19,
         quad: 14,
         quint: 'N/A',
-        rating: '★★',
+        rating: '★★★★',
     },
     {
         hotel: 'LAND PREMIUM',
@@ -19,7 +19,7 @@ export const hotelRates = [
         triple: 35,
         quad: 26,
         quint: 'N/A',
-        rating: '★★',
+        rating: '★★★',
     },
     {
         hotel: 'FUNDAQ HARIS',
@@ -41,6 +41,6 @@ export const hotelRates = [
         triple: 49,
         quad: 37,
         quint: 'N/A',
-        rating: '★★',
+        rating: '★',
     },
 ];

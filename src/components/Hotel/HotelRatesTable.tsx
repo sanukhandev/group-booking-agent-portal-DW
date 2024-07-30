@@ -17,35 +17,57 @@ interface HotelRatesTableProps {
     hotelRates: HotelRate[];
 }
 
+const getRatingColor = (rating: string) => {
+    switch (rating) {
+        case '★':
+            return 'text-red-500';
+        case '★★':
+            return 'text-orange-500';
+        case '★★★':
+            return 'text-yellow-500';
+        case '★★★★':
+            return 'text-green-500';
+        case '★★★★★':
+            return 'text-blue-500';
+        default:
+            return 'text-gray-500';
+    }
+};
+
 const HotelRatesTable: React.FC<HotelRatesTableProps> = ({ hotelRates }) => (
-    <div className="bg-white p-4 rounded-lg shadow-md">
+    <div className="table-responsive">
         <h2 className="text-xl font-semibold text-gray-700 mb-4">Makkah Hotel Rates at AL-SABOOR GROUP</h2>
         <table className="w-full border-collapse">
             <thead>
-            <tr className="bg-primary text-white">
-                <th className="p-2 border">Hotel</th>
-                <th className="p-2 border">Date</th>
-                <th className="p-2 border">Distance</th>
-                <th className="p-2 border">Sharing</th>
-                <th className="p-2 border">Double</th>
-                <th className="p-2 border">Triple</th>
-                <th className="p-2 border">Quad</th>
-                <th className="p-2 border">Quint</th>
+            <tr className="border-b-0">
+                <th className="ltr:rounded-l-md rtl:rounded-r-md">Hotel</th>
+                <th>Date</th>
+                <th>Distance</th>
+                <th>Sharing</th>
+                <th>Double</th>
+                <th>Triple</th>
+                <th>Quad</th>
+                <th className="ltr:rounded-r-md rtl:rounded-l-md">Quint</th>
             </tr>
             </thead>
             <tbody>
             {hotelRates.map((rate, index) => (
-                <tr key={index} className="bg-gray-100">
-                    <td className="p-2 border">
-                        {rate.hotel} <br /> <span className="text-sm text-gray-500">Rating: {rate.rating}</span>
+                <tr key={index} className="text-white-dark hover:text-black dark:hover:text-white-light/90 group">
+                    <td className="min-w-[150px] text-black dark:text-white">
+                        <div className="flex">
+                            <p className="whitespace-nowrap font-bold">
+                                {rate.hotel}
+                                <span className={`block text-xs ${getRatingColor(rate.rating)}`}>Rating: {rate.rating}</span>
+                            </p>
+                        </div>
                     </td>
-                    <td className="p-2 border">{rate.date}</td>
-                    <td className="p-2 border">{rate.distance} Meters</td>
-                    <td className="p-2 border">{rate.sharing}</td>
-                    <td className="p-2 border">{rate.double}</td>
-                    <td className="p-2 border">{rate.triple}</td>
-                    <td className="p-2 border">{rate.quad}</td>
-                    <td className="p-2 border">{rate.quint}</td>
+                    <td>{rate.date}</td>
+                    <td>{rate.distance} Meters</td>
+                    <td>{rate.sharing}</td>
+                    <td>{rate.double}</td>
+                    <td>{rate.triple}</td>
+                    <td>{rate.quad}</td>
+                    <td>{rate.quint}</td>
                 </tr>
             ))}
             </tbody>
