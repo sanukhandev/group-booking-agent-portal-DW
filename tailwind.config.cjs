@@ -53,6 +53,9 @@ module.exports = {
                     light: '#e0e6ed',
                     dark: '#888ea8',
                 },
+                filter: {
+                    'white': 'invert(100%) sepia(0%) saturate(0%) hue-rotate(360deg) brightness(100%) contrast(100%)',
+                },
             },
             fontFamily: {
                 nunito: ['Nunito', 'sans-serif'],

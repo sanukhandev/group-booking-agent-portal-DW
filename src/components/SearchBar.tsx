@@ -1,43 +1,128 @@
-// src/components/SearchBar.tsx
-import React from 'react';
+import React, { useState } from 'react';
 
-const SearchBar: React.FC = () => {
+interface RefineSearchResultsProps {
+    onFilterChange: (filterType: string, value: string) => void;
+}
+
+const SearchBar: React.FC<RefineSearchResultsProps> = ({ onFilterChange }) => {
+    const [selectedAirline, setSelectedAirline] = useState<string>('');
+    const [selectedSector, setSelectedSector] = useState<string>('');
+
+    const handleAirlineChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const value = event.target.value;
+        setSelectedAirline(value);
+        onFilterChange('airline', value);
+    };
+
+    const handleSectorChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const value = event.target.value;
+        setSelectedSector(value);
+        onFilterChange('sector', value);
+    };
+
     return (
-        <div className="bg-gray-100 p-4 rounded-lg mb-4">
-            <h2 className="text-xl font-bold mb-2">Refine search results</h2>
-            <div className="mb-4">
-                <h3 className="text-lg font-semibold mb-2">Filter Airline Wise</h3>
-                <div>
-                    <input type="radio" name="airline" id="all" />
-                    <label htmlFor="all" className="ml-2">Show All</label>
-                </div>
-                <div>
-                    <input type="radio" name="airline" id="air-canada" />
-                    <label htmlFor="air-canada" className="ml-2">AIR CANADA</label>
-                </div>
-                <div>
-                    <input type="radio" name="airline" id="saudi-airlines" />
-                    <label htmlFor="saudi-airlines" className="ml-2">SAUDI ARABIAN AIRLINES</label>
-                </div>
+        <div className="p-4  bg-white shadow-md rounded-lg">
+            <h2 className="text-lg font-semibold mb-4 text-gray-800">Refine search results</h2>
+            <div className="mb-6">
+                <h3 className="text-md font-semibold text-gray-700 mb-2">Filter Airline Wise</h3>
+                <ul className="space-y-2">
+                    <li>
+                        <label className="flex items-center space-x-2 cursor-pointer">
+                            <input
+                                type="radio"
+                                name="airline"
+                                value="Show All"
+                                checked={selectedAirline === 'Show All'}
+                                onChange={handleAirlineChange}
+                                className="form-radio h-4 w-4 text-indigo-600 transition duration-150 ease-in-out"
+                            />
+                            <span className="text-sm text-gray-600">Show All</span>
+                        </label>
+                    </li>
+                    <li>
+                        <label className="flex items-center space-x-2 cursor-pointer">
+                            <input
+                                type="radio"
+                                name="airline"
+                                value="AIR CANADA"
+                                checked={selectedAirline === 'AIR CANADA'}
+                                onChange={handleAirlineChange}
+                                className="form-radio h-4 w-4 text-indigo-600 transition duration-150 ease-in-out"
+                            />
+                            <span className="text-sm text-gray-600">AIR CANADA</span>
+                        </label>
+                    </li>
+                    <li>
+                        <label className="flex items-center space-x-2 cursor-pointer">
+                            <input
+                                type="radio"
+                                name="airline"
+                                value="SAUDI ARABIAN AIRLINES"
+                                checked={selectedAirline === 'SAUDI ARABIAN AIRLINES'}
+                                onChange={handleAirlineChange}
+                                className="form-radio h-4 w-4 text-indigo-600 transition duration-150 ease-in-out"
+                            />
+                            <span className="text-sm text-gray-600">SAUDI ARABIAN AIRLINES</span>
+                        </label>
+                    </li>
+                </ul>
             </div>
             <div>
-                <h3 className="text-lg font-semibold mb-2">Filter Sector Wise</h3>
-                <div>
-                    <input type="radio" name="sector" id="all-sectors" />
-                    <label htmlFor="all-sectors" className="ml-2">Show All</label>
-                </div>
-                <div>
-                    <input type="radio" name="sector" id="lhe-jed-lhe" />
-                    <label htmlFor="lhe-jed-lhe" className="ml-2">LHE-JED-LHE</label>
-                </div>
-                <div>
-                    <input type="radio" name="sector" id="mux-jed-mux" />
-                    <label htmlFor="mux-jed-mux" className="ml-2">MUX-JED-MUX</label>
-                </div>
-                <div>
-                    <input type="radio" name="sector" id="sv-739-lhe-jed-lhe" />
-                    <label htmlFor="sv-739-lhe-jed-lhe" className="ml-2">SV-739-LHE-JED-LHE</label>
-                </div>
+                <h3 className="text-md font-semibold text-gray-700 mb-2">Filter Sector Wise</h3>
+                <ul className="space-y-2">
+                    <li>
+                        <label className="flex items-center space-x-2 cursor-pointer">
+                            <input
+                                type="radio"
+                                name="sector"
+                                value="Show All"
+                                checked={selectedSector === 'Show All'}
+                                onChange={handleSectorChange}
+                                className="form-radio h-4 w-4 text-indigo-600 transition duration-150 ease-in-out"
+                            />
+                            <span className="text-sm text-gray-600">Show All</span>
+                        </label>
+                    </li>
+                    <li>
+                        <label className="flex items-center space-x-2 cursor-pointer">
+                            <input
+                                type="radio"
+                                name="sector"
+                                value="LHE-JED-LHE"
+                                checked={selectedSector === 'LHE-JED-LHE'}
+                                onChange={handleSectorChange}
+                                className="form-radio h-4 w-4 text-indigo-600 transition duration-150 ease-in-out"
+                            />
+                            <span className="text-sm text-gray-600">LHE-JED-LHE</span>
+                        </label>
+                    </li>
+                    <li>
+                        <label className="flex items-center space-x-2 cursor-pointer">
+                            <input
+                                type="radio"
+                                name="sector"
+                                value="MUX-JED-MUX"
+                                checked={selectedSector === 'MUX-JED-MUX'}
+                                onChange={handleSectorChange}
+                                className="form-radio h-4 w-4 text-indigo-600 transition duration-150 ease-in-out"
+                            />
+                            <span className="text-sm text-gray-600">MUX-JED-MUX</span>
+                        </label>
+                    </li>
+                    <li>
+                        <label className="flex items-center space-x-2 cursor-pointer">
+                            <input
+                                type="radio"
+                                name="sector"
+                                value="SV-739-LHE-JED-LHE"
+                                checked={selectedSector === 'SV-739-LHE-JED-LHE'}
+                                onChange={handleSectorChange}
+                                className="form-radio h-4 w-4 text-indigo-600 transition duration-150 ease-in-out"
+                            />
+                            <span className="text-sm text-gray-600">SV-739-LHE-JED-LHE</span>
+                        </label>
+                    </li>
+                </ul>
             </div>
         </div>
     );

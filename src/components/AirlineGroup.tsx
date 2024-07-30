@@ -14,57 +14,106 @@ export interface AirlineGroupProps {
     route: string;
 }
 
+interface ISectorDetails {
+    flightNumber: string;
+    date: string;
+    route: string;
+    time: string;
+    baggage: string;
+}
+
 const AirlineGroup: React.FC<{ group: AirlineGroupProps }> = ({ group }) => {
+    const sectorDetails = (sectorDetails: string): ISectorDetails[] => {
+        return sectorDetails.split(',').map(detail => {
+            const parts = detail.trim().split(' ');
+            const flightNumber = parts[0];
+            const date = parts[1];
+            const route = parts[2];
+            const time = parts.slice(3, parts.length - 2).join(' ');
+            const baggage = parts.slice(-2).join(' ');
+
+            return {
+                flightNumber,
+                date,
+                route,
+                time,
+                baggage
+            };
+        });
+    };
+
+
     return (
-        // <div className="bg-white shadow-md p-4 rounded-lg mb-4">
-        //     <h2 className="text-xl font-bold mb-2">UMRAH GROUP</h2>
-        //     <h3 className="text-lg font-semibold text-green-600 mb-2">{group.airline}</h3>
-        //     <div className="mb-2">
-        //         <span className="font-semibold">Sector Details:</span> {group.sectorDetails}
-        //     </div>
-        //     <div className="mb-2">
-        //         <span className="font-semibold">Total Seats:</span> {group.totalSeats}
-        //     </div>
-        //     <div className="mb-2">
-        //         <span className="font-semibold">Dep Date:</span> <span className="text-green-600">{group.depDate}</span>
-        //     </div>
-        //     <div className="flex justify-between items-center">
-        //         <span className="text-xl font-bold">{group.price}</span>
-        //         <button className="btn bg-orange-500 text-white">BOOK NOW</button>
-        //     </div>
-        // </div>
-        <div className="mb-5 flex items-center">
-            <div
-                className="w-full bg-white shadow-[4px_6px_10px_-3px_#bfc9d4] rounded border border-white-light dark:border-[#1b2e4b] dark:bg-[#191e3a] dark:shadow-none">
-                <div className="p-5 flex items-center flex-col sm:flex-row">
-                    <div className="mb-5 w-24 h-auto ">
+        <div className="pt-5 pl-2.5">
+            <div className="max-w-full  bg-white flex flex-col rounded overflow-hidden shadow-lg">
+                <div className="flex flex-row items-baseline flex-nowrap bg-gray-100 p-2">
+                    <img src="/assets/vectors/Icons/plane.svg" alt="" className="w-[15px] h-auto" />
+                    <h1 className="ml-2 uppercase font-bold text-gray-500">{group.airline}</h1>
+                    <p className="ml-2 font-normal text-gray-500">For {group.numberOfDays} Day(s)</p>
+                </div>
+                <div className="mt-2 flex sm:flex-row mx-6 sm:justify-between flex-wrap">
+                    <div className="flex flex-row place-items-center p-2">
                         <img
                             src={`/assets/vectors/airlines/${group.AirlineCode}.svg`}
                             alt="airline logo"
-                            className="w-full h-full object-cover"
+                            className="w-[150px] h-auto object-cover"
                         />
                     </div>
-                    <div className="flex-1 ltr:sm:pl-5 rtl:sm:pr-5 text-center sm:text-left">
-                        <div className="flex items-center">
-                            <h5 className="text-primary text-[15px] font-semibold mb-2 mt-1.5 mr-2.5 dark:text-white-light">{group.airline}</h5>
-                            <span className="badge bg-primary rounded-full mr-2.5">{group.flightNumber}</span>
-                            <span className="badge bg-secondary rounded-full mr-2.5">{group.route}</span>
-                            <span className="badge bg-black rounded-full mr-2.5">{group.numberOfDays} Days</span>
+                    {sectorDetails(group.sectorDetails).map((detail, index) => (
+                        <div key={index}
+                             className="flex flex-col p-4 border border-gray-200 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 mb-2 mt-2 bg-white flex-grow flex-shrink-0 flex-basis-[calc(50%-1rem)] sm:flex-basis-[calc(33%-1rem)] max-w-[calc(33%-1rem)]">
+                            <p className="font-bold flex items-center mb-2">
+                                <img
+                                    src={`/assets/vectors/Icons/${index === (group.sectorDetails.split(',').length - 1) ? 'landing' : 'takeoff'}.svg`}
+                                    alt="" className="w-[20px] h-auto mr-2" />
+                                {group.AirlineCode + '-' + detail.flightNumber}
+                            </p>
+                            <div className="flex items-center justify-between mb-1">
+                                <p className="text-xs text-gray-500"><span
+                                    className="font-semibold">Date:</span> {detail.date}</p>
+                                <p className="text-xs text-gray-500"><span
+                                    className="font-semibold">Route:</span> {detail.route}</p>
+                            </div>
+                            <div className="flex items-center justify-between mb-1">
+                                <p className="text-xs text-gray-500"><span
+                                    className="font-semibold">Time:</span> {detail.time}</p>
+                                <p className="text-xs text-gray-500"><span
+                                    className="font-semibold">Baggage:</span> {detail.baggage.replace('Baggage', '')}
+                                </p>
+                            </div>
                         </div>
-                        <div className="flex items-center">
-                            <button type="button" className="btn btn-warning rounded btn-sm">
-                                25
-                            </button>
+                    ))}
+                </div>
+                <div className="mt-4 bg-gray-100 flex flex-row flex-wrap md:flex-nowrap justify-between items-baseline">
+                    {sectorDetails(group.sectorDetails).map((detail, index) => (
+                        <div className="flex mx-6 py-4 flex-row flex-wrap">
+                            <img
+                                src={`/assets/vectors/Icons/${index === (group.sectorDetails.split(',').length - 1) ? 'landing' : 'takeoff'}.svg`}
+                                alt="" className="w-[25px] h-auto mr-2" />
+                            <div className="text-sm mx-2 flex flex-col">
+                                <p> {group.AirlineCode + '-' + detail.flightNumber}</p>
+                                <p className="font-bold">{detail.date} {detail.time}</p>
+                                <p className="text-xs text-gray-500">{detail.route} - {detail.baggage.replace('Baggage', '')}</p>
+                            </div>
                         </div>
-                        <p className="font-semibold text-white-dark mt-4 sm:mt-8">
-                            Maecenas nec mi vel lacus condimentum rhoncus dignissim egestas orci. Integer blandit porta
-                            placerat. Vestibulum in ultricies.
-                        </p>
+                    ))}
+
+
+                    <div className="mx-6 flex flex-row py-4 mr-6 flex-wrap">
+                        <img src="/assets/vectors/Icons/seat.svg" alt="" className="w-[25px] h-auto " />
+                        <div className="text-sm mx-2 flex flex-col">
+                            <p> Seats 2/30</p>
+                            <p className="font-bold">{group.price}</p>
+                            <p className="text-xs text-gray-500">Price per adult</p>
+                        </div>
+                        <button
+                            className="w-32 h-11 rounded flex border-solid border text-white bg-primary hover:bg-secondary mx-2 justify-center place-items-center">
+                            <div className="">Book</div>
+                        </button>
                     </div>
                 </div>
             </div>
         </div>
-
     );
 };
 
