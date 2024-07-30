@@ -1,39 +1,43 @@
 import { lazy } from 'react';
-import Home from '../pages/Home';
-import FlightSearchPage from '../pages/FlightSearchPage';
-import Calculator from '../pages/Calculator';
-import Confirmation from '../pages/Confirmation';
+
+const Home = lazy(() => import('../pages/Home'));
+const FlightSearchPage = lazy(() => import('../pages/FlightSearchPage'));
+const Calculator = lazy(() => import('../pages/Calculator'));
+const Confirmation = lazy(() => import('../pages/Confirmation'));
+const HotelRates = lazy(() => import('../pages/HotelRates'));
 const Index = lazy(() => import('../pages/Index'));
 
 const routes = [
     {
         path: '/',
         element: <Home />,
-        layout: 'default',
+        layout: 'default'
     },
     {
         path: '/home',
         element: <Home />,
-        layout: 'default',
+        layout: 'default'
     },
     {
         path: '/search',
         element: <FlightSearchPage />,
-        layout: 'default',
+        layout: 'default'
     },
     {
         path: '/calculator',
         element: <Calculator />,
-        layout: 'default',
+        layout: 'default'
     },
     {
         path: '/confirmation',
         element: <Confirmation />,
-        layout: 'default',
+        layout: 'default'
+    },
+    {
+        path: '/hotel-rates',
+        element: <HotelRates />,
+        layout: 'default'
     }
-
-
-
 ];
 
 export { routes };

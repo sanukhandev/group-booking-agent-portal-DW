@@ -31,7 +31,7 @@ const Confirmation: React.FC = () => {
 
     return (
         <div className="mx-auto p-6 bg-white rounded-lg shadow-md">
-            <h1 className="text-2xl font-semibold text-gray-700 mb-4">AL-SABOOR GROUP Umrah Package Details</h1>
+            <h1 className="text-2xl font-semibold text-gray-700 mb-4"> Umrah Package Details</h1>
             <VisaDetailsDisplay
                 visaType={visaDetails.visaType}
                 adults={visaDetails.adults}

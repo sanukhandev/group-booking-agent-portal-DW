@@ -36,13 +36,13 @@ export const menuConfig: MenuItem[] = [
     {
         label: 'Makkah Hotel Rates',
         icon: IconMenuApps, // Replace with appropriate icon if needed
-        path: '/makkah-hotel-rates',
+        path: '/hotel-rates',
 
     },
     {
         label: 'Madina Hotel Rates',
         icon: IconMenuApps, // Replace with appropriate icon if needed
-        path: '/madina-hotel-rates',
+        path: '/hotel-rates',
 
     },
 ]
