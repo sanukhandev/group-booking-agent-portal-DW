@@ -54,11 +54,48 @@ module.exports = {
                     dark: '#888ea8',
                 },
                 filter: {
-                    'white': 'invert(100%) sepia(0%) saturate(0%) hue-rotate(360deg) brightness(100%) contrast(100%)',
+                    white: 'invert(100%) sepia(0%) saturate(0%) hue-rotate(360deg) brightness(100%) contrast(100%)',
+                },
+                cyan: {
+                    400: '#22d3ee',
+                    500: '#06b6d4',
+                },
+                violet: {
+                    400: '#a78bfa',
+                    500: '#8b5cf6',
+                },
+                blue: {
+                    400: '#60a5fa',
+                    500: '#3b82f6',
+                },
+                fuchsia: {
+                    400: '#f472b6',
+                    500: '#ec4899',
                 },
             },
+            keyframes: {
+                flipInY: {
+                    '0%': {
+                        transform: 'perspective(400px) rotateY(90deg)',
+                        opacity: '0',
+                    },
+                    '40%': {
+                        transform: 'perspective(400px) rotateY(-10deg)',
+                    },
+                    '70%': {
+                        transform: 'perspective(400px) rotateY(10deg)',
+                    },
+                    '100%': {
+                        transform: 'perspective(400px) rotateY(0)',
+                        opacity: '1',
+                    },
+                },
+            },
+            animation: {
+                flipInY: 'flipInY 2s infinite both',
+            },
             fontFamily: {
-                nunito: ['Nunito', 'sans-serif'],
+                nunito: ['DM Sans', 'sans-serif'],
             },
             spacing: {
                 4.5: '18px',

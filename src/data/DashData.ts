@@ -1,0 +1,38 @@
+export const DashData = [
+    {
+        title: 'Users Visit',
+        amount: '$170.46',
+        percentage: '+ 2.35%',
+        trend: '+',
+        lastWeek: 'Last Week 44,700',
+        gradientFrom: 'cyan-500',
+        gradientTo: 'cyan-400',
+    },
+    {
+        title: 'Sessions',
+        amount: '74,137',
+        percentage: '- 2.35%',
+        trend: '-',
+        lastWeek: 'Last Week 84,709',
+        gradientFrom: 'violet-500',
+        gradientTo: 'violet-400',
+    },
+    {
+        title: 'Time On-Site',
+        amount: '38,085',
+        percentage: '+ 1.35%',
+        trend: '+',
+        lastWeek: 'Last Week 37,894',
+        gradientFrom: 'blue-500',
+        gradientTo: 'blue-400',
+    },
+    {
+        title: 'Bounce Rate',
+        amount: '49.10%',
+        percentage: '- 0.35%',
+        trend: '-',
+        lastWeek: 'Last Week 50.01%',
+        gradientFrom: 'fuchsia-500',
+        gradientTo: 'fuchsia-400',
+    },
+];

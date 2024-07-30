@@ -3,12 +3,13 @@ import { createBrowserRouter } from 'react-router-dom';
 import BlankLayout from '../components/Layouts/BlankLayout';
 import DefaultLayout from '../components/Layouts/DefaultLayout';
 import { routes } from './routes';
+import Preloader from '../components/PreLoader';
 
 const finalRoutes = routes.map((route) => {
     return {
         ...route,
         element: (
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={<Preloader/>}>
                 {route.layout === 'blank' ? (
                     <BlankLayout>{route.element}</BlankLayout>
                 ) : (
