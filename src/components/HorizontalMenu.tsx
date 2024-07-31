@@ -33,7 +33,7 @@ const HorizontalMenu: React.FC = () => {
     };
 
     return (
-        <ul className="horizontal-menu hidden py-1.5 font-semibold px-6 lg:space-x-1.5 xl:space-x-8 rtl:space-x-reverse bg-white border-t border-[#ebedf2] dark:border-[#191e3a] dark:bg-[#001f41] text-black dark:text-white-dark">
+        <ul className="flex justify-center horizontal-menu hidden py-1.5 font-semibold px-6 lg:space-x-1.5 xl:space-x-8 rtl:space-x-reverse bg-white border-t border-[#ebedf2] dark:border-[#191e3a] dark:bg-[#001f41] text-black dark:text-white-dark">
             {menuConfig.map((menuItem, index) => (
                 <li key={index} className="menu nav-item relative">
                     <NavLink to={menuItem.path!}>  <button type="button" className="nav-link">

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, NavLink, useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { IRootState } from '../../store';
 import { toggleRTL, toggleTheme, toggleSidebar } from '../../store/themeConfigSlice';
 import { useTranslation } from 'react-i18next';
@@ -23,15 +23,7 @@ import IconUser from '../Icon/IconUser';
 import IconMail from '../Icon/IconMail';
 import IconLockDots from '../Icon/IconLockDots';
 import IconLogout from '../Icon/IconLogout';
-import IconMenuDashboard from '../Icon/Menu/IconMenuDashboard';
-import IconCaretDown from '../Icon/IconCaretDown';
-import IconMenuApps from '../Icon/Menu/IconMenuApps';
-import IconMenuComponents from '../Icon/Menu/IconMenuComponents';
-import IconMenuElements from '../Icon/Menu/IconMenuElements';
-import IconMenuDatatables from '../Icon/Menu/IconMenuDatatables';
-import IconMenuForms from '../Icon/Menu/IconMenuForms';
-import IconMenuPages from '../Icon/Menu/IconMenuPages';
-import IconMenuMore from '../Icon/Menu/IconMenuMore';
+
 import HorizontalMenu from '../HorizontalMenu';
 
 const Header = () => {
