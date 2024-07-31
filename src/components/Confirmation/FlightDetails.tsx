@@ -87,7 +87,7 @@ const FlightDetails: React.FC = () => {
                         onChange={(e) => handleChange(index, 'arrTime', e.target.value)}
                         className="flex-grow p-2 border rounded-md"
                     />
-                    <button onClick={() => handleRemove(index)} className="bg-primary flex hover:bg-secondary text-white p-2 rounded-md">
+                    <button onClick={() => handleRemove(index)} className="bg-secondary flex hover:bg-primary text-white p-2 rounded-md">
                        <IconTrash/>
                     </button>
                 </div>
