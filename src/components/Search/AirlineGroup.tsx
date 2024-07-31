@@ -67,7 +67,7 @@ const AirlineGroup: React.FC<{ group: AirlineGroupProps }> = ({ group }) => {
                     </div>
                     {sectorDetails(group.sectorDetails).map((detail, index) => (
                         <div key={index}
-                             className="flex flex-col p-4 border border-gray-200 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 mb-2 mt-2 bg-white flex-grow flex-shrink-0 flex-basis-[calc(50%-1rem)] sm:flex-basis-[calc(33%-1rem)] max-w-[calc(33%-1rem)]">
+                             className="flex flex-col p-4 border border-gray-200 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 mb-2 mt-2 bg-white flex-grow flex-shrink-0 flex-basis-[calc(50%-1rem)] sm:flex-basis-[calc(50%-1rem)] max-w-[calc(50%-1rem)]">
                             <p className="font-bold flex items-center mb-2">
                                 <img
                                     src={`/assets/vectors/Icons/${index === (group.sectorDetails.split(',').length - 1) ? 'landing' : 'takeoff'}.svg`}

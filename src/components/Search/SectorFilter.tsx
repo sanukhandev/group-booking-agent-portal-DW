@@ -27,7 +27,7 @@ const SectorFilter: React.FC<any> = ({heading}) => {
                     <button
                         key={sector.label}
                         onClick={() => handleSectorClick(sector.label)}
-                        className={`px-4 py-2 h-[35px] rounded text-white font-semibold transition-colors duration-300 ${
+                        className={`px-4 py-2 h-[45px] rounded text-white font-semibold transition-colors duration-300 ${
                             selectedSector === sector.label
                                 ? 'bg-secondary hover:bg-primary' : 'bg-primary hover:bg-secondary'
                         }`}
