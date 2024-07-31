@@ -14,7 +14,7 @@ const Home: React.FC = () => {
                         image={data.image}
                         buttonText={data.buttonText}
                         buttonLink={data.buttonLink}
-                    />
+                    /> 
                 ))}
             </div>
             {/*<div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6 text-white">*/}

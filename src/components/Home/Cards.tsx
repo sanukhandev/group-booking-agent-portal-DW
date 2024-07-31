@@ -5,7 +5,7 @@ interface CardProps {
     buttonText: string;
     buttonLink: string;
 }
-
+ 
 const Cards: React.FC<CardProps> = ({ image, buttonText, buttonLink }) => {
     return (
         <div className="mb-5 flex items-center justify-center">

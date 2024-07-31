@@ -9,7 +9,7 @@ interface CardProps {
     gradientFrom: string;
     gradientTo: string;
 }
-
+ 
 const InfoCards: React.FC<CardProps> = ({ title, amount, percentage, trend, lastWeek, gradientFrom, gradientTo }) => {
     return (
         <div className={`panel bg-gradient-to-r from-${gradientFrom} to-${gradientTo}`}>
