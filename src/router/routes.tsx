@@ -2,6 +2,7 @@ import { lazy } from 'react';
 
 const Home = lazy(() => import('../pages/Home'));
 const FlightSearchPage = lazy(() => import('../pages/FlightSearchPage'));
+const BookingPage = lazy(() => import('../pages/BookingPage'));
 const Calculator = lazy(() => import('../pages/Calculator'));
 const Confirmation = lazy(() => import('../pages/Confirmation'));
 const HotelRates = lazy(() => import('../pages/HotelRates'));
@@ -21,6 +22,11 @@ const routes = [
     {
         path: '/search',
         element: <FlightSearchPage />,
+        layout: 'default'
+    },
+    {
+        path: '/book',
+        element: <BookingPage />,
         layout: 'default'
     },
     {

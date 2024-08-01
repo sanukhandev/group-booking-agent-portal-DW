@@ -1,7 +1,7 @@
 // src/components/AirlineGroup.tsx
 import React, { useState } from 'react';
-import Modal from '../Modal';
-import BookNowForm from './BookNow/BookNowForm';
+import { useNavigate } from 'react-router-dom';
+
 
 export interface AirlineGroupProps {
     airline: string;
@@ -25,10 +25,14 @@ interface ISectorDetails {
 }
 
 const AirlineGroup: React.FC<{ group: AirlineGroupProps }> = ({ group }) => {
-    const [isModalOpen, setIsModalOpen] = useState(false);
+    const navigate = useNavigate();
 
-    const openModal = () => setIsModalOpen(true);
-    const closeModal = () => setIsModalOpen(false);
+const handleBookClick = () => {
+  navigate('/book');
+};
+    
+
+    
     const sectorDetails = (sectorDetails: string): ISectorDetails[] => {
         return sectorDetails.split(',').map(detail => {
             const parts = detail.trim().split(' ');
@@ -112,13 +116,11 @@ const AirlineGroup: React.FC<{ group: AirlineGroupProps }> = ({ group }) => {
                             <p className="font-bold">{group.price}</p>
                             <p className="text-xs text-gray-500">Price per adult</p>
                         </div>
-                        <button onClick={openModal}
+                        <button onClick={handleBookClick}
                             className="w-32 h-11 rounded flex border-solid border text-white bg-primary hover:bg-secondary mx-2 justify-center place-items-center">
                             <div className="">Book</div>
                         </button>
-                        <Modal isOpen={isModalOpen} onClose={closeModal}>
-                            <BookNowForm />
-                        </Modal>
+                       
                     </div>
                 </div>
             </div>
