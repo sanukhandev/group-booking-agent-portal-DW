@@ -12,39 +12,38 @@ const routes = [
     {
         path: '/',
         element: <Home />,
-        layout: 'default'
+        layout: 'default',
     },
     {
         path: '/home',
         element: <Home />,
-        layout: 'default'
+        layout: 'default',
     },
     {
         path: '/search',
         element: <FlightSearchPage />,
-        layout: 'default'
+        layout: 'default',
     },
     {
         path: '/calculator',
         element: <Calculator />,
-        layout: 'default'
+        layout: 'default',
     },
     {
         path: '/confirmation',
         element: <Confirmation />,
-        layout: 'default'
+        layout: 'default',
     },
     {
         path: '/hotel-rates',
         element: <HotelRates />,
-        layout: 'default'
+        layout: 'default',
     },
     {
         path: '/dashboard',
         element: <Dashboard />,
-        // layout:'default'
-        
-    }
+        layout: 'default',
+    },
 ];
 
 export { routes };
