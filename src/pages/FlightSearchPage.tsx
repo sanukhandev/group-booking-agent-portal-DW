@@ -6,15 +6,16 @@ import AirlineGroups from '../components/Search/AirlineGroups';
 const FlightSearchPage: React.FC = () => {
     return (
         <div className="container mx-auto p-4">
-            <SectorFilter heading = ''/>
-            <div className="flex flex-col">
-                <div className="max-w-full pt-5 pl-2.5">
+            <SectorFilter heading='' />
+            <div className="flex flex-col lg:flex-row">
+                <div className="w-full lg:w-1/4 p-2">
                     <SearchBar onFilterChange={(filterType, value) => console.log(filterType, value)} />
                 </div>
-                <div className="max-w-full">
+                <div className="w-full lg:w-3/4 p-2">
                     <AirlineGroups />
                 </div>
             </div>
+
         </div>
     );
 };
