@@ -14,5 +14,5 @@ const AirlineGroups: React.FC = () => {
         </div>
     );
 };
-
+ 
 export default AirlineGroups;

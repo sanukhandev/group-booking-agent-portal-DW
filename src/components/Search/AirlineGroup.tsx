@@ -14,7 +14,7 @@ export interface AirlineGroupProps {
     AirlineCode: string;
     numberOfDays: number;
     route: string;
-}
+} 
 
 interface ISectorDetails {
     flightNumber: string;

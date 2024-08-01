@@ -1,4 +1,5 @@
 import { lazy } from 'react';
+import Dashboard from '../pages/Dashboard';
 
 const Home = lazy(() => import('../pages/Home'));
 const FlightSearchPage = lazy(() => import('../pages/FlightSearchPage'));
@@ -37,6 +38,12 @@ const routes = [
         path: '/hotel-rates',
         element: <HotelRates />,
         layout: 'default'
+    },
+    {
+        path: '/dashboard',
+        element: <Dashboard />,
+        // layout:'default'
+        
     }
 ];
 
