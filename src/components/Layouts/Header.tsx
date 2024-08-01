@@ -194,10 +194,10 @@ const Header = () => {
                                 onClick={() => setSearch(!search)}
                                 className="search_btn sm:hidden p-2 rounded-full bg-white-light/40 dark:bg-dark/40 hover:bg-white-light/90 dark:hover:bg-dark/60"
                             >
-                                <IconSearch className="w-4.5 h-4.5 mx-auto dark:text-[#d0d2d6]" />
+                                <IconSearch className="w-4.5 h-4.5 mx-auto dark:text-[#fff]" />
                             </button>
                         </div>
-                        <div>
+                        {/* <div>
                             {themeConfig.theme === 'light' ? (
                                 <button
                                     className={`${
@@ -239,7 +239,7 @@ const Header = () => {
                                     <IconLaptop />
                                 </button>
                             )}
-                        </div>
+                        </div> 
                         <div className="dropdown shrink-0">
                             <Dropdown
                                 offset={[0, 8]}
@@ -268,7 +268,7 @@ const Header = () => {
                                     })}
                                 </ul>
                             </Dropdown>
-                        </div>
+                        </div>*/}
                         <div className="dropdown shrink-0">
                             <Dropdown
                                 offset={[0, 8]}
