@@ -21,17 +21,17 @@ const BookNowForm: React.FC = () => {
                         <Passengers />
                     </div>
                 )}
-                {currentStep >= 2 && (
+                {currentStep >= 1 && (
                     <div className="w-full mt-10">
                         <PriceDetails />
                     </div>
                 )}
-                {currentStep >= 3 && (
+                {currentStep >= 2 && (
                     <div className="w-full mt-4">
                         <TotalPrice />
                     </div>
                 )}
-                {currentStep >= 4 && (
+                {currentStep >= 2 && (
                     <div className="w-full mt-4">
                         <PassengerDetails />
                     </div>
